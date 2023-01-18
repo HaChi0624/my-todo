@@ -1,10 +1,18 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.addContent {
+  background-color: rgb(199, 194, 194);
+}
+
+.todos {
+  background-color: bisque;
 }
 
 @media (prefers-reduced-motion: no-preference) {
