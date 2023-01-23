@@ -11,9 +11,14 @@
   background-color: rgb(199, 194, 194);
 }
 
-.todos {
-  background-color: bisque;
+ul {
+  list-style:none;
 }
+
+li {
+  font-weight: bold;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
