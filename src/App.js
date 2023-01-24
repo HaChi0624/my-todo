@@ -1,18 +1,27 @@
-import './App.css';
-import { useState } from 'react';
-import { InputTodo } from './components/InputTodo';
-import { Todos } from './components/Todos';
+import "./App.css";
+import { useState } from "react";
+import { InputTodo } from "./components/InputTodo";
+import { Todos } from "./components/Todos";
 
 const App = () => {
-  const [todoTitle, setTodoTitle] = useState('');
-  const [todoText, setTodoText] = useState('');
+  const [todoTitle, setTodoTitle] = useState("");
+  const [todoText, setTodoText] = useState("");
 
   const [todoList, settodoList] = useState([]);
 
   const onClickAdd = () => {
     if (todoTitle === "") return;
     //セットでリストに入れたい
-    const newContent = [todoTitle, todoText]
+
+    // FIXME ここで配列にしているからですかね、
+    // 一つ一つをオブジェクトにしたいので
+    // const newContent = {
+    //   title: todoTitle
+    //   text: todoText
+    // }
+    // みたいな感じにすればいいのでは？？
+    // 現状todoListをconsole.logすると配列の中に配列がはいっていたので、配列の要素はオブジェクトに変更して進めてください！
+    const newContent = [todoTitle, todoText];
     const newTodoList = [...todoList, newContent];
     settodoList(newTodoList);
     setTodoTitle("");
@@ -20,16 +29,13 @@ const App = () => {
     // console.log(newContent)
   };
 
-
-
-  const onChangeTodoText =(e) => {
-    setTodoText(e.target.value)
+  const onChangeTodoText = (e) => {
+    setTodoText(e.target.value);
   };
 
-  const onChangeTodoTitle =(e) => {
-    setTodoTitle(e.target.value)
+  const onChangeTodoTitle = (e) => {
+    setTodoTitle(e.target.value);
   };
-
 
   const onClickDelete = (index) => {
     const newTodoList = [...todoList];
@@ -37,25 +43,28 @@ const App = () => {
     settodoList(newTodoList);
   };
 
-
   return (
-    <div className='App'>
+    <div className="App">
       <h1>俺のTODO</h1>
 
-      <div className='addContent'>
+      <div className="addContent">
         <h2>todo作成</h2>
         <p>追加ボタンを押したら一覧に内容が移動して、formの内容を空にする</p>
 
-        <InputTodo todoTitle={todoTitle} todoText={todoText} onChangeTitle={onChangeTodoTitle} onChangeText={onChangeTodoText} onClick={onClickAdd}/>
+        <InputTodo
+          todoTitle={todoTitle}
+          todoText={todoText}
+          onChangeTitle={onChangeTodoTitle}
+          onChangeText={onChangeTodoText}
+          onClick={onClickAdd}
+        />
       </div>
-        
+
       <div>
         <Todos todoList={todoList} onClickDelete={onClickDelete} />
       </div>
     </div>
   );
-}
+};
 
 export default App;
-
-
