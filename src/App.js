@@ -12,12 +12,16 @@ const App = () => {
   const onClickAdd = () => {
     if (todoTitle === "") return;
     //セットでリストに入れたい
-    const newContent = [todoTitle, todoText]
+    // const newContent = [todoTitle, todoText]
+    const newContent = {
+      title: todoTitle,
+      text: todoText
+    }
     const newTodoList = [...todoList, newContent];
     settodoList(newTodoList);
     setTodoTitle("");
     setTodoText("");
-    // console.log(newContent)
+    console.log(newContent)
   };
 
 

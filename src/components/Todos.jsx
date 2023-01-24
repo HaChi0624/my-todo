@@ -10,9 +10,13 @@ export const Todos = (props) => {
         {todoList.map((todo, index) => {
           return (
             //todoの中身を取り出したい
-            //App.jsのonClickAddのnewContent
-            <div key={todo} className="list-row">
-              <li><input type='checkbox'/>{todo}</li>
+            //App.jsのonClickAddのnewContent  
+            <div key={todo.title} className="list-row">
+              <li>
+                <input type='checkbox'/>
+                <div className="li-title">{todo.title}</div>
+                <div>{todo.text}</div>
+              </li>
               <button onClick={() => onClickDelete(index)}>削除</button>
             </div>
           );

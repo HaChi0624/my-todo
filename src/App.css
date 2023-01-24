@@ -15,9 +15,10 @@ ul {
   list-style:none;
 }
 
-li {
+.li-title {
   font-weight: bold;
 }
+
 
 
 @media (prefers-reduced-motion: no-preference) {
