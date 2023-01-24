@@ -7,16 +7,17 @@ const App = () => {
   const [todoTitle, setTodoTitle] = useState('');
   const [todoText, setTodoText] = useState('');
 
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, settodoList] = useState([]);
 
   const onClickAdd = () => {
     if (todoTitle === "") return;
     //セットでリストに入れたい
     const newContent = [todoTitle, todoText]
     const newTodoList = [...todoList, newContent];
-    setTodoList(newTodoList);
+    settodoList(newTodoList);
     setTodoTitle("");
     setTodoText("");
+    // console.log(newContent)
   };
 
 
@@ -33,7 +34,7 @@ const App = () => {
   const onClickDelete = (index) => {
     const newTodoList = [...todoList];
     newTodoList.splice(index, 1);
-    setTodoList(newTodoList);
+    settodoList(newTodoList);
   };
 
 
@@ -49,7 +50,7 @@ const App = () => {
       </div>
         
       <div>
-        <Todos todos={todoList} onClickDelete={onClickDelete} />
+        <Todos todoList={todoList} onClickDelete={onClickDelete} />
       </div>
     </div>
   );

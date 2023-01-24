@@ -1,13 +1,16 @@
 import React from "react";
 
 export const Todos = (props) => {
-  const { todos, onClickDelete } = props;
+  const { todoList, onClickDelete } = props;
+  
   return (
     <div className="list-area">
       <p className="title">TODO一覧</p>
       <ul>
-        {todos.map((todo, index) => {
+        {todoList.map((todo, index) => {
           return (
+            //todoの中身を取り出したい
+            //App.jsのonClickAddのnewContent
             <div key={todo} className="list-row">
               <li><input type='checkbox'/>{todo}</li>
               <button onClick={() => onClickDelete(index)}>削除</button>
